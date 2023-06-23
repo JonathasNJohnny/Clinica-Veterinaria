@@ -1,4 +1,4 @@
-package org.uepb.entity;
+package petshop;
 
 import java.util.Date;
 
