@@ -10,6 +10,7 @@ public abstract class Funcionario {
         this.nome = nome;
         this.especialidade = especialidade;
         this.cpf = cpf;
+        this.agenda = new Agenda();
     }
 
     public String getNome() {
@@ -42,15 +43,5 @@ public abstract class Funcionario {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    @Override
-    public String toString() {
-        return "Funcionario{" +
-                "nome='" + nome + '\'' +
-                ", especialidade='" + especialidade + '\'' +
-                ", agenda=" + agenda +
-                ", cpf='" + cpf + '\'' +
-                '}';
     }
 }
