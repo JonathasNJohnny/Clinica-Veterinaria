@@ -7,6 +7,13 @@ public class Animal {
     private String raca;
     private Cliente dono;
 
+    public Animal(String nome, String especie, String raca, Cliente dono) {
+        this.nome = nome;
+        this.especie = especie;
+        this.raca = raca;
+        this.dono = dono;
+    }
+
     public String getNome() {
         return nome;
     }
