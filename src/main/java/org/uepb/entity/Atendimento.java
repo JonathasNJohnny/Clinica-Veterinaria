@@ -7,8 +7,15 @@ public class Atendimento {
     private Animal animalPaciente;
     private Date horarioAtendimento;
     private String descricao;
+    
+    public Atendimento(Animal animalPaciente, Date horarioAtendimento, String descricao) {
+		super();
+		this.animalPaciente = animalPaciente;
+		this.horarioAtendimento = horarioAtendimento;
+		this.descricao = descricao;
+	}
 
-    public Animal getAnimalPaciente() {
+	public Animal getAnimalPaciente() {
         return animalPaciente;
     }
 
