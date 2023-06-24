@@ -1,5 +1,8 @@
 package org.uepb.controller;
 
+import org.uepb.entity.Atendimento;
+import org.uepb.entity.Funcionario;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
