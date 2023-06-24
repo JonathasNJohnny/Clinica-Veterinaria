@@ -1,30 +1,15 @@
 package org.uepb.entity;
 
 public class Veterinario extends Funcionario {
-	public Veterinario(Builder builder) {
-		super(builder);
-	}
-
-	@Override
+    public Veterinario(String nome, String cpf) {
+        super(nome, cpf);
+        
+    }
+    
+    @Override
 	public String toString() {
-		return "Veterinário \nNome: " + getNome() +
-				"\nEspecialidade: " + getEspecialidade() +
+		return "Veterinário \nNome: " + getNome() + 
 				"\nCPF: " + getCpf();
 	}
-
-	public static Builder builder() {
-		return new Builder();
-	}
-
-	public static class Builder extends Funcionario.Builder<Veterinario, Builder> {
-		@Override
-		protected Builder self() {
-			return this;
-		}
-
-		@Override
-		public Veterinario build() {
-			return new Veterinario(this);
-		}
-	}
+    
 }
