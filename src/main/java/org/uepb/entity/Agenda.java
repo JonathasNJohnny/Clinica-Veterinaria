@@ -12,6 +12,8 @@ public class Agenda {
 		this.nomeDono = builder.nomeDono;
 	}
 
+	public Agenda() {}
+
 	public List<Atendimento> getAtendimentos() {
 		return atendimentos;
 	}
