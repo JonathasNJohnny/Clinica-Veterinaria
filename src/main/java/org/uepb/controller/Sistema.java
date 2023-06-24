@@ -3,6 +3,9 @@ package org.uepb.controller;
 import org.uepb.entity.Atendimento;
 import org.uepb.entity.Funcionario;
 
+import org.uepb.entity.Groomer;
+import org.uepb.entity.Veterinario;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +15,7 @@ public class Sistema {
 
 	public Sistema() {
 		super();
-		this.funcionarios = new ArrayList<Groomer>();
+		this.funcionarios = new ArrayList<>();
 	}
 
 	public Veterinario getVeterinario() {

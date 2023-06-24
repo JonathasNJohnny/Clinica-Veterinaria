@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 class SistemaTest {
     Sistema sis;
+    Animal bixo;
+    Cliente dono;
 
     @BeforeEach
     void setUp(){
@@ -29,6 +31,16 @@ class SistemaTest {
         sis = new Sistema();
         sis.setFuncionarios(funcionarios);
 
+        Cliente.Builder builderCliente = new Cliente.Builder();
+        dono = builderCliente.cpf("123.456.789-12").nome("Quincas Borba").endereco("Rio de Janeiro").telefone("+55 83 98847-7675").build();
 
+        Animal.Builder builderAnimal = new Animal.Builder();
+        builderAnimal.especie("Cão").nome("Quincas Borba").raca("Vira-lata").dono(dono);
+    }
+
+    @Test
+    @DisplayName("Teste básico")
+    void testSistema(){
+        Atendimento atendimento = new Atendimento(bixo, "", "")
     }
 }
