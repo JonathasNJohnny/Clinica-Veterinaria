@@ -4,22 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Agenda {
-    private ArrayList<Atendimento> atendimentos = new ArrayList<>();
-    private String nomeDono;
+	private List<Atendimento> atendimentos;
+	private String nomeDono;
 
-	public Agenda() {
-		super();
-		this.atendimentos = new ArrayList<Atendimento>();
+	private Agenda(Builder builder) {
+		this.atendimentos = builder.atendimentos;
+		this.nomeDono = builder.nomeDono;
 	}
 
-	public ArrayList<Atendimento> getAtendimentos() {
+	public Agenda() {}
+
+	public List<Atendimento> getAtendimentos() {
 		return atendimentos;
 	}
 
-	public void setAtendimentos(ArrayList<Atendimento> atendimentos) {
+	public void setAtendimentos(List<Atendimento> atendimentos) {
 		this.atendimentos = atendimentos;
 	}
-	
+
 	public String getNomeDono() {
 		return nomeDono;
 	}
@@ -37,6 +39,29 @@ public class Agenda {
 		}
 		else {
 			System.out.println("A agenda está vazia!\n");
+		}
+	}
+
+	public static class Builder {
+		private List<Atendimento> atendimentos;
+		private String nomeDono;
+
+		public Builder() {
+			this.atendimentos = new ArrayList<>();
+		}
+
+		public Builder atendimentos(List<Atendimento> atendimentos) {
+			this.atendimentos = atendimentos;
+			return this;
+		}
+
+		public Builder nomeDono(String nomeDono) {
+			this.nomeDono = nomeDono;
+			return this;
+		}
+
+		public Agenda build() {
+			return new Agenda(this);
 		}
 	}
 }
