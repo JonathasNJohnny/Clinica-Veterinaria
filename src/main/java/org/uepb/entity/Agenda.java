@@ -22,6 +22,10 @@ public class Agenda {
 		this.atendimentos = atendimentos;
 	}
 
+	public void addAtendimento(Atendimento atendimento){
+		this.atendimentos.add(atendimento);
+	}
+
 	public String getNomeDono() {
 		return nomeDono;
 	}

@@ -40,7 +40,7 @@ public class Sistema {
 				}
 				
 			}
-			funcionarios.get(choice-1).getAgenda().getAtendimentos().add(atendimento);
+			funcionarios.get(choice-1).getAgenda().addAtendimento(atendimento);
 			System.out.println("Atendimento marcado com sucesso!\n");
 		}
 	}
