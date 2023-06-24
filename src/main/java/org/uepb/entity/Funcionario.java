@@ -11,6 +11,10 @@ public abstract class Funcionario {
         this.cpf = builder.cpf;
     }
 
+    public String getEspecialidade() {
+    	return null;
+    }
+
     public String getNome() {
         return nome;
     }
