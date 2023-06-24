@@ -1,30 +1,28 @@
 package org.uepb.entity;
 
 public class Groomer extends Funcionario {
-	public Groomer(Builder builder) {
-		super(builder);
+	private String especialidade;
+	
+	public Groomer(String nome, String cpf, String especialidade) {
+		super(nome, cpf);
+		this.especialidade = especialidade;
 	}
+	
+	public String getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "Groomer \nNome: " + getNome() +
-				"\nEspecialidade: " + getEspecialidade() +
+		return "Groomer \nNome: " + getNome() + 
+				"\nEspecialidade: " + especialidade + 
 				"\nCPF: " + getCpf();
 	}
-
-	public static Builder builder() {
-		return new Builder();
-	}
-
-	public static class Builder extends Funcionario.Builder<Groomer, Builder> {
-		@Override
-		protected Builder self() {
-			return this;
-		}
-
-		@Override
-		public Groomer build() {
-			return new Groomer(this);
-		}
-	}
+    
 }
