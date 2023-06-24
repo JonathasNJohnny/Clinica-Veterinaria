@@ -12,6 +12,10 @@ public abstract class Funcionario {
         this.agenda.setNomeDono(nome);
     }
 
+    public String getEspecialidade() {
+    	return null;
+    }
+
     public String getNome() {
         return nome;
     }
