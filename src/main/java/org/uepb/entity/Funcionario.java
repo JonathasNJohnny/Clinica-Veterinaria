@@ -11,6 +11,7 @@ public abstract class Funcionario {
         this.especialidade = especialidade;
         this.cpf = cpf;
         this.agenda = new Agenda();
+        this.agenda.setNomeDono(nome);
     }
 
     public String getNome() {
