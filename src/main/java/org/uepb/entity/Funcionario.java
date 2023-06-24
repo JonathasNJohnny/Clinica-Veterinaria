@@ -2,19 +2,16 @@ package org.uepb.entity;
 
 public abstract class Funcionario {
     private String nome;
-    private Agenda agenda;
+    private Agenda agenda = new Agenda();
     private String cpf;
 
-    public Funcionario(FuncionarioBuilder builder) {
-        this.nome = builder.nome;
-        this.agenda = builder.agenda;
-        this.cpf = builder.cpf;
+    public Funcionario(String nome,  String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.agenda = new Agenda();
+        this.agenda.setNomeDono(nome);
     }
-
-    public String getEspecialidade() {
-    	return null;
-    }
-
+    
     public String getNome() {
         return nome;
     }
@@ -37,30 +34,5 @@ public abstract class Funcionario {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public static abstract class FuncionarioBuilder<T extends Funcionario, B extends FuncionarioBuilder<T, B>> {
-        private String nome;
-        private Agenda agenda;
-        private String cpf;
-
-        public B nome(String nome) {
-            this.nome = nome;
-            return self();
-        }
-
-        public B agenda(Agenda agenda) {
-            this.agenda = agenda;
-            return self();
-        }
-
-        public B cpf(String cpf) {
-            this.cpf = cpf;
-            return self();
-        }
-
-        protected abstract B self();
-
-        public abstract T build();
     }
 }
