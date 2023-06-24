@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Agenda {
     private ArrayList<Atendimento> atendimentos = new ArrayList<>();
+    private String nomeDono;
 
 	public Agenda() {
 		super();
@@ -18,10 +19,24 @@ public class Agenda {
 	public void setAtendimentos(ArrayList<Atendimento> atendimentos) {
 		this.atendimentos = atendimentos;
 	}
-    
-    
+	
+	public String getNomeDono() {
+		return nomeDono;
+	}
 
-//    public boolean verificarHorario(horario) {
-//
-//    }
+	public void setNomeDono(String nomeDono) {
+		this.nomeDono = nomeDono;
+	}
+
+	public void imprimeAtendimentos(){
+		if (!atendimentos.isEmpty()) {
+			System.out.println(nomeDono);
+			for (Atendimento atendimento : atendimentos) {
+				System.out.println((atendimentos.indexOf(atendimento)+1) + "º " + atendimento);
+			}
+		}
+		else {
+			System.out.println("A agenda está vazia!\n");
+		}
+	}
 }
