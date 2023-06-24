@@ -1,21 +1,19 @@
 package org.uepb.entity;
 
-import java.util.Date;
-
 public class Atendimento {
 
-    private Animal animalPaciente;
-    private Date horarioAtendimento;
-    private String descricao;
-    
-    public Atendimento(Animal animalPaciente, Date horarioAtendimento, String descricao) {
+    public Atendimento(Animal animalPaciente, String horarioAtendimento, String descricao) {
 		super();
 		this.animalPaciente = animalPaciente;
 		this.horarioAtendimento = horarioAtendimento;
 		this.descricao = descricao;
 	}
 
-	public Animal getAnimalPaciente() {
+	private Animal animalPaciente;
+    private String horarioAtendimento;
+    private String descricao;
+
+    public Animal getAnimalPaciente() {
         return animalPaciente;
     }
 
@@ -23,11 +21,11 @@ public class Atendimento {
         this.animalPaciente = animalPaciente;
     }
 
-    public Date getHorarioAtendimento() {
+    public String getHorarioAtendimento() {
         return horarioAtendimento;
     }
 
-    public void setHorarioAtendimento(Date horarioAtendimento) {
+    public void setHorarioAtendimento(String horarioAtendimento) {
         this.horarioAtendimento = horarioAtendimento;
     }
 
@@ -41,12 +39,10 @@ public class Atendimento {
 
     @Override
     public String toString() {
-        return "Atendimento{" +
-                "animalPaciente=" + animalPaciente +
-                ", horarioAtendimento=" + horarioAtendimento +
-                ", descricao='" + descricao + '\'' +
-                '}';
+        return "Atendimento" +
+                "\nNome Pet: " + animalPaciente.getNome() +
+                "\nNome Dono: " + animalPaciente.getDono().getNome() +
+                ",\nHorario: " + horarioAtendimento +
+                ",\nDescrição: '" + descricao + "\n";
     }
-
-    //TODO: FAZER O MÉTODO ALTERAR_DATA
 }
