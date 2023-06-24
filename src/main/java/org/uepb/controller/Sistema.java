@@ -2,6 +2,8 @@ package org.uepb.controller;
 
 import org.uepb.entity.Atendimento;
 import org.uepb.entity.Funcionario;
+import org.uepb.entity.Groomer;
+import org.uepb.entity.Veterinario;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -113,7 +115,7 @@ public class Sistema {
 		}
 	}
 	
-	public void realizarAssistênciaVeterianaria(int index) {
+	public void realizarAssistenciaVeterianaria(int index) {
 		if (!veterinario.getAgenda().getAtendimentos().isEmpty()) {
 			System.out.println("\nA consulta com o pet cujo dono se chama: " + veterinario.getAgenda().getAtendimentos().get(index-1).getAnimalPaciente().getDono().getNome() + " e com o pet de nome: " + veterinario.getAgenda().getAtendimentos().get(index-1).getAnimalPaciente().getNome() + " foi realizada com sucesso!");
 			veterinario.getAgenda().getAtendimentos().remove(index-1);
