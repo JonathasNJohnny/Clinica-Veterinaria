@@ -7,11 +7,11 @@ public class Animal {
     private String raca;
     private Cliente dono;
 
-    public Animal(String nome, String especie, String raca, Cliente dono) {
-        this.nome = nome;
-        this.especie = especie;
-        this.raca = raca;
-        this.dono = dono;
+    private Animal(Builder builder) {
+        this.nome = builder.nome;
+        this.especie = builder.especie;
+        this.raca = builder.raca;
+        this.dono = builder.dono;
     }
 
     public String getNome() {
@@ -56,4 +56,37 @@ public class Animal {
                 '}';
     }
 
+    public static class Builder {
+        private String nome;
+        private String especie;
+        private String raca;
+        private Cliente dono;
+
+        public Builder() {
+        }
+
+        public Builder nome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public Builder especie(String especie) {
+            this.especie = especie;
+            return this;
+        }
+
+        public Builder raca(String raca) {
+            this.raca = raca;
+            return this;
+        }
+
+        public Builder dono(Cliente dono) {
+            this.dono = dono;
+            return this;
+        }
+
+        public Animal build() {
+            return new Animal(this);
+        }
+    }
 }
