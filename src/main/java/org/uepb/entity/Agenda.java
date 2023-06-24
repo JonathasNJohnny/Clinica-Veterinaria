@@ -4,24 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Agenda {
-    private ArrayList<Atendimento> atendimentos = new ArrayList<>();
-    private String nomeDono;
+	private List<Atendimento> atendimentos = new ArrayList<>();
+	private String nomeDono;
 
-	public Agenda() {
-		super();
-		this.atendimentos = new ArrayList<Atendimento>();
+	public Agenda(AgendaBuilder builder) {
+		this.atendimentos = builder.atendimentos;
+		this.nomeDono = builder.nomeDono;
 	}
 
-	public ArrayList<Atendimento> getAtendimentos() {
+	public List<Atendimento> getAtendimentos() {
 		return atendimentos;
 	}
 
-	public void setAtendimentos(ArrayList<Atendimento> atendimentos) {
+	public void setAtendimentos(List<Atendimento> atendimentos) {
 		this.atendimentos = atendimentos;
 	}
 
-
-	public void addAtendimento(Atendimento atendimento){
+	public void addAtendimento(Atendimento atendimento) {
 		this.atendimentos.add(atendimento);
 	}
 
@@ -33,15 +32,33 @@ public class Agenda {
 		this.nomeDono = nomeDono;
 	}
 
-	public void imprimeAtendimentos(){
+	public void imprimeAtendimentos() {
 		if (!atendimentos.isEmpty()) {
 			System.out.println("Agenda: " + nomeDono);
 			for (Atendimento atendimento : atendimentos) {
-				System.out.println((atendimentos.indexOf(atendimento)+1) + "º " + atendimento);
+				System.out.println((atendimentos.indexOf(atendimento) + 1) + "º " + atendimento);
 			}
-		}
-		else {
+		} else {
 			System.out.println("A agenda está vazia!\n");
+		}
+	}
+
+	public static class AgendaBuilder {
+		private List<Atendimento> atendimentos = new ArrayList<>();
+		private String nomeDono;
+
+		public AgendaBuilder atendimentos(List<Atendimento> atendimentos) {
+			this.atendimentos = atendimentos;
+			return this;
+		}
+
+		public AgendaBuilder nomeDono(String nomeDono) {
+			this.nomeDono = nomeDono;
+			return this;
+		}
+
+		public Agenda build() {
+			return new Agenda(this);
 		}
 	}
 }
