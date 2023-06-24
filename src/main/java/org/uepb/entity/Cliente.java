@@ -7,11 +7,7 @@ public class Cliente {
     private String telefone;
     private String endereco;
 
-    public Cliente(String nome, String cpf, String telefone, String endereco) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.endereco = endereco;
+    private Cliente() {
     }
 
     public String getNome() {
@@ -49,10 +45,49 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "nome='" + nome + '\'' +	
+                "nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", telefone='" + telefone + '\'' +
                 ", endereco='" + endereco + '\'' +
                 '}';
+    }
+
+    public static class Builder {
+        private String nome;
+        private String cpf;
+        private String telefone;
+        private String endereco;
+
+        public Builder() {
+        }
+
+        public Builder nome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public Builder cpf(String cpf) {
+            this.cpf = cpf;
+            return this;
+        }
+
+        public Builder telefone(String telefone) {
+            this.telefone = telefone;
+            return this;
+        }
+
+        public Builder endereco(String endereco) {
+            this.endereco = endereco;
+            return this;
+        }
+
+        public Cliente build() {
+            Cliente cliente = new Cliente();
+            cliente.setNome(nome);
+            cliente.setCpf(cpf);
+            cliente.setTelefone(telefone);
+            cliente.setEndereco(endereco);
+            return cliente;
+        }
     }
 }
