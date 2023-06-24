@@ -10,7 +10,5 @@ public class Groomer extends Funcionario {
 		return "Groomer \nNome: " + getNome() + 
 				"\nEspecialidade: " + getEspecialidade() + 
 				"\nCPF: " + getCpf();
-	}
-    
-    
+	}	
 }
