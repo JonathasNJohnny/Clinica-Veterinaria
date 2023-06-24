@@ -24,17 +24,21 @@ public class Sistema {
 		int choice = 0;
 		if (!funcionarios.isEmpty()) {
 			for (Funcionario funcionario : funcionarios) {
-				System.out.println((funcionarios.indexOf(funcionario)+1) + "º \nNome: " + funcionario.getNome() + "\nCPF: " + funcionario.getCpf());
-			}
-			while (true) {
-				System.out.println("Digite o número do funcionário escolhido: ");
-				choice = sc.nextInt();
-				if (choice >= 1 && choice <= funcionarios.size());{
-					break;
+				if (funcionario.getEspecialidade() == atendimento.getAnimalPaciente().getEspecie()) {
+					System.out.println("ID: 00" + (funcionarios.indexOf(funcionario)+1) + "\nNome: " + funcionario.getNome() + "\nCPF: " + funcionario.getCpf());
 				}
 			}
+			while (true) {
+				System.out.println("Digite o ID do funcionário escolhido: ");
+				choice = sc.nextInt();
+				if (choice >= 1 && choice <= funcionarios.size()){
+					System.out.println("Saiu");
+					break;
+				}
+				
+			}
 			funcionarios.get(choice-1).getAgenda().getAtendimentos().add(atendimento);
-			System.out.println("Atendimento marcado com sucesso!");
+			System.out.println("Atendimento marcado com sucesso!\n");
 		}
 	}
 	
@@ -60,11 +64,11 @@ public class Sistema {
 			}
 		}
 	}
-	public void realizarAtendimento(Funcionario funcionario) {
-
+	public void realizarAtendimento(Funcionario funcionario, int index) {
+		funcionario.getAgenda().getAtendimentos().remove(index-1);
 	}
 	
-	public void realizarProcedimento(Funcionario funcionario) {
+	public void realizarAssistênciaVeterianaria() {
 		
 	}
 }
