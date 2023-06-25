@@ -9,6 +9,7 @@ public abstract class Funcionario {
         this.nome = builder.nome;
         this.agenda = builder.agenda;
         this.cpf = builder.cpf;
+        this.agenda.setNomeDono(nome);
     }
 
     public String getNome() {
