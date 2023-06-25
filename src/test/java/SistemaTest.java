@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.uepb.controller.Sistema;
 import org.uepb.entity.*;
 
+import org.uepb.*;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -53,7 +55,7 @@ class SistemaTest {
     @DisplayName("Realizar tosa.")
     void testRealizarTosa(){
         InputStream sysInBackup = System.in; // backup System.in to restore it later
-        ByteArrayInputStream in = new ByteArrayInputStream("1 1".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("2".getBytes());
         System.setIn(in);
 
         Atendimento.Builder builder = new Atendimento.Builder();
@@ -70,20 +72,18 @@ class SistemaTest {
 
     @Test
     @DisplayName("Remover atendimento")
-    void testRemoverAtendimento(){
-        InputStream sysInBackup = System.in; // backup System.in to restore it later
-        ByteArrayInputStream in = new ByteArrayInputStream("2\n2".getBytes());
-        System.setIn(in);
-
+    void testRemoverAtendimento() {
+    	InputStream sysInBackup = System.in; // backup System.in to restore it later
+        ByteArrayInputStream in2 = new ByteArrayInputStream("2".getBytes());
         Atendimento.Builder builder = new Atendimento.Builder();
-
         Atendimento atendimento = builder.animalPaciente(bixo).horarioAtendimento("14-09-1890").descricao("Uma consulta qualquer.").build();
         sis.adicionarAtendimento(atendimento);
-
+        System.setIn(in2);
         sis.removerAtendimento("Quincas Borba", "Quincas Borba");
 
         System.setIn(sysInBackup);
     }
+
 
     @Test
     @DisplayName("Realizar atendimento com veterinário.")
